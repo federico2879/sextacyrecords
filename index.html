@@ -13,6 +13,25 @@
   
     gtag('config', 'G-P98M4PX30N');
   </script>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '713975828140484');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=713975828140484&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
   <style>
     body {
@@ -221,7 +240,7 @@
         <div class="image-box" style="background-image: url('images/COPERTINA_SEXTACY_SOUNDS.jpg');"></div>
       </div>
       <!-- Cool Spotify button under the picture, same width as image -->
-      <a href="https://open.spotify.com/playlist/3OEVaCS4RF6VJmto6PD64l?si=4e8091efe842467f" class="spotify-btn full-width" target="_blank" aria-label="Listen on Spotify">
+      <a href="https://open.spotify.com/playlist/3OEVaCS4RF6VJmto6PD64l?si=4e8091efe842467f" class="spotify-btn full-width" target="_blank" aria-label="Listen on Spotify" onclick="fbq('trackCustom', 'SpotifyClick');">
         <span class="spotify-logo">
           <img src="images/SPOTIFY_LOGO4.png" alt="Spotify Logo" style="height: 24px; width: 24px;">
         </span>
