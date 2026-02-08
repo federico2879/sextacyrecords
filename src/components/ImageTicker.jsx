@@ -1,24 +1,26 @@
+import { useEffect, useState } from "react";
+
 export default function ImageTicker({ images, speedSeconds = 24 }) {
-  const loop = [...images, ...images];
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setScrollPosition((prev) => (prev + 1) % (images.length * 100));
+    }, (speedSeconds * 1000) / (images.length * 100));
+
+    return () => clearInterval(interval);
+  }, [images.length, speedSeconds]);
 
   return (
-    <div className="tickerWrap">
-      <div className="tickerFadeLeft" />
-      <div className="tickerFadeRight" />
-
+    <div className="imageTicker">
       <div
-        className="ticker"
-        style={{ "--ticker-duration": `${speedSeconds}s` }}
+        className="tickerContent"
+        style={{
+          transform: `translateX(calc(-${scrollPosition}% - ${scrollPosition * 0.1}px))`,
+        }}
       >
-        {loop.map((src, i) => (
-          <div className="tickerItem" key={`${src}-${i}`}>
-            <img
-              className="tickerImg"
-              src={src}
-              alt="Event"
-              loading="lazy"
-            />
-          </div>
+        {images.map((img, index) => (
+          <img key={index} src={img} alt={`Event ${index}`} />
         ))}
       </div>
     </div>
